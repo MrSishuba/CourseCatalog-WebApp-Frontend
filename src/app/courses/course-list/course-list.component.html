@@ -1,0 +1,32 @@
+    <div>
+        <h2 style="padding-right: 50px;">Course Listing</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4" *ngFor="let course of courses ">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h5 class="card-title">{{course.courseName}}</h5>
+                        <h6 class="card-text">{{course.courseDuration}}</h6>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{course.courseDescription}}</h5>                                              
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-warning" routerLink="/update/{{course.courseId}}">Edit</button>
+                            </div>
+                            <div class="col-6 text-end"> <!-- Added "text-end" class to align buttons to the right -->
+                                <button class="btn btn-danger" (click)="onDelete(course.courseId)" >Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br>
+            </div>
+        </div>
+        <br>
+    </div>
+

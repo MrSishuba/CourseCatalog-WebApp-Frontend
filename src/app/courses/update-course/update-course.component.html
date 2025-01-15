@@ -1,0 +1,47 @@
+<div>
+    <h2 style="padding-right: 50px;">Update A Course</h2>
+</div>
+<div style="display: flex; justify-content: center; align-items: center; height: 60vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        <h5 class="card-title">Course</h5>
+                    </div>
+                    <form style="padding: 0 15px;" [formGroup]="updateForm">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" formControlName="courseName">
+                            <div class="form-text">Enter the name of the course.</div>
+                            <div *ngIf="updateForm.controls['courseName'].invalid && (updateForm.controls['courseName'].dirty || updateForm.controls['courseName'].touched)" class="alert">
+                                <div *ngIf="updateForm.controls['courseName'].errors?.['required']">Name is required.</div>
+                                <div *ngIf="updateForm.controls['courseName'].errors?.['minlength']">Name must be at least 6 characters long.</div>
+                                <div *ngIf="updateForm.controls['courseName'].errors?.['maxlength']">Name must be at most 6 characters long.</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Duration</label>
+                            <input type="text" class="form-control" formControlName="courseDuration">
+                            <div class="form-text">Enter the duration of the course.</div>
+                            <div *ngIf="updateForm.controls['courseDuration'].invalid && (updateForm.controls['courseDuration'].dirty || updateForm.controls['courseDuration'].touched)" class="alert">
+                                <div *ngIf="updateForm.controls['courseDuration'].errors?.['required']">Duration is required.</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <input type="text" class="form-control" formControlName="courseDescription">
+                            <div class="form-text">Enter the description of the course.</div>
+                            <div *ngIf="updateForm.controls['courseDescription'].invalid && (updateForm.controls['courseDescription'].dirty || updateForm.controls['courseDescription'].touched)" class="alert">
+                                <div *ngIf="updateForm.controls['courseDescription'].errors?.['required']">Description is required.</div>
+                            </div>
+                        </div>
+                        <button (click)="onUpdateCourse()" class="btn btn-info" style="margin-bottom: 10px;">Update</button>
+                        <button (click)="onCancel()" class="btn btn-danger" style="margin-bottom: 10px; float: right">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
